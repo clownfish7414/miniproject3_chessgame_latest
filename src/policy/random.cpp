@@ -12,7 +12,7 @@
  * @return Move 
  */
 Move Random::get_move(State *state, int depth){
-  if(!state->legal_actions.size())
+  if(!state->legal_actions.size())//沒有任何棋步可以走，通常不會
     state->get_legal_actions();
   
   auto actions = state->legal_actions;

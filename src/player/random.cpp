@@ -5,7 +5,8 @@
 #include "../state/state.hpp"
 #include "../policy/random.hpp"
 
-
+//
+//在makefile的時候找到player random.cpp會去對policy裡面同名的cpp
 State* root;
 
 /**
@@ -38,11 +39,11 @@ void read_board(std::ifstream& fin) {
  * 
  * @param fout 
  */
-void write_valid_spot(std::ofstream& fout) {
+void write_valid_spot(std::ofstream& fout) {//可以參考這個去改
   // Keep updating the output until getting killed.
   while(true) {
     // Choose a random spot.
-    auto move = Random::get_move(root, 0);
+    auto move = Random::get_move(root, 0);//探討get_move
     fout << move.first.first << " " << move.first.second << " "\
          << move.second.first << " " << move.second.second << std::endl;
     
@@ -63,6 +64,7 @@ int main(int, char** argv) {
   srand(RANDOM_SEED);
   std::ifstream fin(argv[1]);
   std::ofstream fout(argv[2]);
+  //輸出現在棋盤狀況
 
   read_board(fin);
   write_valid_spot(fout);
