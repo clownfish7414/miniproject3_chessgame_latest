@@ -2,15 +2,31 @@
 #define __STATE_H__
 
 #include <string>
+#include <map>
 #include <cstdlib>
 #include <vector>
 #include <utility>
 
 #include "../config.hpp"
+using namespace std;
 
 
 typedef std::pair<size_t, size_t> Point;
 typedef std::pair<Point, Point> Move;
+
+map<int,int> value_table={
+  {0,0},
+  {1,2},
+  {2,6},
+  {3,7},
+  {4,8},
+  {5,20},
+  {6,INT_MAX}
+
+};
+
+
+
 class Board{
   public:
     char board[2][BOARD_H][BOARD_W] = {{
@@ -31,6 +47,8 @@ class Board{
       {0, 0, 0, 0, 0},
     }};
 };
+
+
 
 enum GameState {
   UNKNOWN = 0,

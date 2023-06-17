@@ -13,7 +13,24 @@
  */
 int State::evaluate(){
   // [TODO] design your own evaluation function
-  return 0;
+  auto self_board = this->board.board[this->player];
+  auto oppn_board = this->board.board[1 - this->player];
+
+  int my_score=0;
+  int oppo_score=0;
+
+  for(int i=0; i<BOARD_H; i+=1){
+    for(int j=0; j<BOARD_W; j+=1){
+      my_score+=value_table[self_board[i][j]];
+      oppo_score+=value_table[oppn_board[i][j]];
+
+
+    }
+  }
+
+
+
+  return my_score-oppo_score;
 }
 
 
