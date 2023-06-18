@@ -1,6 +1,14 @@
 #include <iostream>
 #include <fstream>
 
+#include <string>
+#include <sstream>
+#include <array>
+#include <vector>
+#include <cassert>
+#include <cstdint>
+
+
 #include "../config.hpp"
 #include "../state/state.hpp"
 #include "../policy/minimax.hpp"
@@ -42,8 +50,11 @@ void read_board(std::ifstream& fin) {
 void write_valid_spot(std::ofstream& fout) {//可以參考這個去改
   // Keep updating the output until getting killed.
   while(true) {
-    // Choose a random spot.
-    auto move = Minimax::get_move(root, 10);//探討get_move
+    int want_state=Minimax::get_move(root, 5, 1-root->player);
+    Move move=Minimax::get_want_move(want_state,root);
+    
+    
+
     fout << move.first.first << " " << move.first.second << " "\
          << move.second.first << " " << move.second.second << std::endl;
     

@@ -5,12 +5,40 @@
 #include "./state.hpp"
 #include "../config.hpp"
 
+map<int,int> value_table={
+  {0,0},
+  {1,2},
+  {2,6},
+  {3,7},
+  {4,8},
+  {5,20},
+  {6,10000000}
+};
+
 
 /**
  * @brief evaluate the state
  * 
  * @return int 
  */
+
+bool State::operator==(const State &rhs){
+  if(board==rhs.board){
+    return true;
+  }
+
+  return false;
+  
+}
+bool Board::operator==(const Board &rhs){
+  if(rhs.board==board){
+    return true;
+  }
+  else{
+    return false;
+  }
+}
+
 int State::evaluate(){
   // [TODO] design your own evaluation function
  

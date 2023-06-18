@@ -43,7 +43,7 @@ void write_valid_spot(std::ofstream& fout) {//可以參考這個去改
   // Keep updating the output until getting killed.
   while(true) {
     // Choose a random spot.
-    auto move = Random::get_move(root, 10);//探討get_move
+    auto move = Random::get_move(root, 3);//探討get_move
     fout << move.first.first << " " << move.first.second << " "\
          << move.second.first << " " << move.second.second << std::endl;
     
