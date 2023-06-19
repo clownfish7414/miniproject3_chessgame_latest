@@ -49,9 +49,14 @@ void read_board(std::ifstream& fin) {
  */
 void write_valid_spot(std::ofstream& fout) {//可以參考這個去改
   // Keep updating the output until getting killed.
+  int depth=0;
   while(true) {
-    int want_state=Minimax::get_move(root, 5, 1-root->player);
-    Move move=Minimax::get_want_move(want_state,root);
+    depth+=1;
+    
+    //int want_state=Minimax::get_move(root, 4, 1-root->player);
+    //Move move=Minimax::get_want_move(want_state,root);
+    Move move=Minimax::get_move(root,depth,root->player);
+    
     
     
 

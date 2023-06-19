@@ -23,9 +23,95 @@
 
 
 
+Move Minimax::get_move(State*root,int depth,int player){
+    if(!root->legal_actions.size())//沒有任何棋步可以走，通常不會
+    root->get_legal_actions();
+  
+    auto actions = root->legal_actions;
+    int min_value=INT_MAX;
+    int max_value=INT_MIN;
+    Move next_move;
 
 
-int Minimax::get_move(State *state, int depth,bool maxplayer){
+
+    for(auto item:actions){
+        if(!player){
+            int value=minimax(root->next_state(item),depth-1, 0);      
+            max_value=max(max_value,value);
+            if(max_value==value){
+                next_move=item;
+            }    
+            
+
+        }
+        else{
+            int value=minimax(root->next_state(item),depth-1, 1);      
+            min_value=min(min_value,value);
+            if(min_value==value){
+                next_move=item;
+            }    
+
+        }
+        
+    }
+    return next_move;
+    
+}
+
+
+int Minimax::minimax(State *state, int depth,bool maxplayer){
+  
+    if(!state->legal_actions.size())//沒有任何棋步可以走，通常不會
+    state->get_legal_actions();
+  
+  auto actions = state->legal_actions;
+
+
+  if(depth==0 || actions.empty()){
+    state->value = state->evaluate();
+    return state->value;
+  }
+
+  
+
+
+  if(maxplayer){
+    int maxvalue=-INT_MAX;
+    
+    for(auto item:actions){
+        int value=minimax(state->next_state(item), depth-1,false);
+        maxvalue=std::max(maxvalue,value);
+        
+    }
+    state->value=maxvalue;
+    /*if(depth==6){
+        return state->evaluate();
+        
+    }*/
+
+    return maxvalue;
+  }
+
+  else{
+    int minvalue=INT_MAX;
+    
+    for(auto item:actions){
+        int value=minimax(state->next_state(item), depth-1,true);
+        minvalue=std::min(minvalue,value);
+        
+    }
+    state->value=minvalue;
+    /*if(depth==6){
+        return state->evaluate();
+    }*/
+    return minvalue;
+  }
+
+  
+  
+}
+
+/*int Minimax::get_move(State *state, int depth,bool maxplayer){
   
   if(depth==0 || state->game_state==WIN){
     state->value = state->evaluate();
@@ -51,7 +137,7 @@ int Minimax::get_move(State *state, int depth,bool maxplayer){
         maxvalue=std::max(maxvalue,value);   
     }
     state->value=maxvalue;
-    if(depth==4){
+    if(depth==3){
         return state->evaluate();
     }
 
@@ -66,11 +152,12 @@ int Minimax::get_move(State *state, int depth,bool maxplayer){
         minvalue=std::min(minvalue,value);
     }
     state->value=minvalue;
-    if(depth==4){
+    if(depth==3){
         return state->evaluate();
     }
     return minvalue;
   }
+  return 0;//不會跑到
 
   
   
@@ -81,10 +168,11 @@ Move Minimax::get_want_move(int want_state,State*root){
         if(want_state==root->next_state(item)->evaluate()){
             return item;
         }
+        
     }
-    //return root->legal_actions[0];
+    return root->legal_actions[0];//不會跑到
 
-}
+}*/
 
 /*bigstate Minimax::get_move(State *state, int depth,int player){
   

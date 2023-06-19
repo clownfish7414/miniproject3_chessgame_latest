@@ -14,6 +14,8 @@ struct bigstate{
  */
 class Minimax{
 public:
-  static int get_move(State *state, int depth,bool player);
-  static Move get_want_move(int want_state,State*root);
+  //static int get_move(State *state, int depth,bool player);
+  //static Move get_want_move(int want_state,State*root);
+  static Move get_move(State *state,int depth,int player);
+  static int minimax(State *state,int depth, bool player);
 };
