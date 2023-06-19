@@ -87,7 +87,7 @@ State* State::next_state(Move move){
   next.board[this->player][from.first][from.second] = 0;
   next.board[this->player][to.first][to.second] = moved;
   
-  State* next_state = new State(next, 1-this->player);
+  State* next_state = new State(next, 1-this->player);//重要
   
   if(this->game_state != WIN)
     next_state->get_legal_actions();
