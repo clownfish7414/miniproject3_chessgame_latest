@@ -60,13 +60,13 @@ Move Alpha_Beta::get_move(State*root,int depth,int player){
 
 int Alpha_Beta::alpha_beta(State *state, int depth,int alpha,int beta,bool maxplayer){
   
-    if(!state->legal_actions.size())//沒有任何棋步可以走，通常不會
-    state->get_legal_actions();
+    //if(!state->legal_actions.size())//沒有任何棋步可以走，通常不會
+    //state->get_legal_actions();
   
   auto actions = state->legal_actions;
 
 
-  if(depth==0 || actions.empty()){
+  if(depth==0 || actions.empty() ){
     state->value = state->evaluate();
     return state->value;
   }

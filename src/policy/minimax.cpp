@@ -61,8 +61,8 @@ Move Minimax::get_move(State*root,int depth,int player){
 
 int Minimax::minimax(State *state, int depth,bool maxplayer){
   
-    if(!state->legal_actions.size())//沒有任何棋步可以走，通常不會
-    state->get_legal_actions();
+    //if(!state->legal_actions.size())//沒有任何棋步可以走，通常不會
+    //state->get_legal_actions();
   
   auto actions = state->legal_actions;
 

@@ -30,6 +30,7 @@ void read_board(std::ifstream& fin) {
     }
   }
   root = new State(board, player);
+ 
   root->get_legal_actions();
 }
 

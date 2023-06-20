@@ -49,7 +49,7 @@ void read_board(std::ifstream& fin) {
  */
 void write_valid_spot(std::ofstream& fout) {//可以參考這個去改
   // Keep updating the output until getting killed.
-  int depth=0;
+  int depth=1;
   while(true) {
     depth+=1;
     
@@ -65,7 +65,7 @@ void write_valid_spot(std::ofstream& fout) {//可以參考這個去改
     
     // Remember to flush the output to ensure the last action is written to file.
     fout.flush();
-    break;
+    
   }
 }
 
