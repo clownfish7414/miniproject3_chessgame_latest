@@ -155,7 +155,7 @@ map<int,float> value_table_black={
         break;
       case 4:
         for(int i=0;i<4;i++){
-          if((i+direction_bishop[i][0]>=BOARD_H || j+direction_bishop[i][1]>=BOARD_W) || my_board[i+direction_bishop[i][0]][j+direction_bishop[i][1]]!=0){
+          if((i+direction_bishop[i][0]>=BOARD_H || j+direction_bishop[i][1]>=BOARD_W) ){
             
               my_score-=0.8;
             
@@ -166,7 +166,7 @@ map<int,float> value_table_black={
         break;
       case 2:
         for(int i=0;i<4;i++){
-          if((i+direction_rook[i][0]>=BOARD_H || j+direction_rook[i][1]>=BOARD_W)||my_board[i+direction_rook[i][0]][j+direction_rook[i][1]]!=0){
+          if((i+direction_rook[i][0]>=BOARD_H || j+direction_rook[i][1]>=BOARD_W)){
             
               my_score-=0.8;
             
@@ -176,7 +176,7 @@ map<int,float> value_table_black={
         break;
       case 5:
         for(int i=0;i<4;i++){
-          if((i+direction_rook[i][0]>=BOARD_H || j+direction_rook[i][1]>=BOARD_W)||my_board[i+direction_rook[i][0]][j+direction_rook[i][1]]!=0){
+          if((i+direction_rook[i][0]>=BOARD_H || j+direction_rook[i][1]>=BOARD_W)){
             
               my_score-=0.8;
             
@@ -184,7 +184,7 @@ map<int,float> value_table_black={
         }
 
         for(int i=0;i<4;i++){
-          if((i+direction_bishop[i][0]>=BOARD_H || j+direction_bishop[i][1]>=BOARD_W) || my_board[i+direction_bishop[i][0]][j+direction_bishop[i][1]]!=0){
+          if((i+direction_bishop[i][0]>=BOARD_H || j+direction_bishop[i][1]>=BOARD_W) ){
             
               my_score-=0.8;
             
@@ -247,7 +247,7 @@ map<int,float> value_table_black={
         break;
       case 4:
         for(int i=0;i<4;i++){
-          if((i+direction_bishop[i][0]>=BOARD_H || j+direction_bishop[i][1]>=BOARD_W)||oppn_board[i+direction_bishop[i][0]][j+direction_bishop[i][1]]!=0){
+          if((i+direction_bishop[i][0]>=BOARD_H || j+direction_bishop[i][1]>=BOARD_W)){
             
               oppo_score-=0.8;
             
@@ -258,7 +258,7 @@ map<int,float> value_table_black={
         break;
       case 2:
         for(int i=0;i<4;i++){
-          if((i+direction_rook[i][0]>=BOARD_H || j+direction_rook[i][1]>=BOARD_W)||oppn_board[i+direction_rook[i][0]][j+direction_rook[i][1]]!=0){
+          if((i+direction_rook[i][0]>=BOARD_H || j+direction_rook[i][1]>=BOARD_W)){
             
               oppo_score-=0.8;
             
@@ -268,7 +268,7 @@ map<int,float> value_table_black={
         break;
       case 5:
         for(int i=0;i<4;i++){
-          if((i+direction_bishop[i][0]>=BOARD_H || j+direction_bishop[i][1]>=BOARD_W)||oppn_board[i+direction_bishop[i][0]][j+direction_bishop[i][1]]!=0){
+          if((i+direction_bishop[i][0]>=BOARD_H || j+direction_bishop[i][1]>=BOARD_W)){
             
               oppo_score-=0.8;
             
@@ -276,7 +276,7 @@ map<int,float> value_table_black={
           
         }
        for(int i=0;i<4;i++){
-          if((i+direction_rook[i][0]>=BOARD_H || j+direction_rook[i][1]>=BOARD_W)||oppn_board[i+direction_rook[i][0]][j+direction_rook[i][1]]!=0){
+          if((i+direction_rook[i][0]>=BOARD_H || j+direction_rook[i][1]>=BOARD_W)){
             
               oppo_score-=0.8;
             
